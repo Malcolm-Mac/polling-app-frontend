@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "src/presentation",
       "prefix": "app",
       "architect": {
         "build": {
@@ -97,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
