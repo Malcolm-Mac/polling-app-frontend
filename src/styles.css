@@ -1,7 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html
 {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
+}
+html, body { height: 100%; }
+
+h1,h2,h3,h4,h5,h6 {
+    color: white;
+}
+
+body{
+    background-image: url("/noise.svg");
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container{
+    color: white;
+    height: 100vh;
+    display: grid;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    gap: .6rem;
+    font-size: 2rem;
+    grid-template-areas: "Nav Nav"
+                         "Hero Hero"
+                         "Main Main"
+                         "Box1 Box2"
+                         "Footer Footer";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.8fr 2.5fr 2.5fr 1.5fr 0.8fr;
+}
+
+nav{
+    grid-area: Nav;
+}
+
+.hero{
+  grid-area: Hero;
+}
+
+main{
+    grid-area: Main;
+}
+
+.box1{
+    grid-area: Box1;
+}
+
+.box2{
+    grid-area: Box2;
+}
+
+footer{
+    grid-area: Footer;
+}
+
+@media(max-width: 640px){
+    .container{
+        grid-template-areas: "Nav"
+                            "Hero"
+                            "Main"
+                            "Box1"
+                            "Box2"
+                            "Footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: .5fr 1.2fr 1.2fr .5fr 1fr .5fr;
+        width: 100%;
+    }
 }
 

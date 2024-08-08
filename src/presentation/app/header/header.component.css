@@ -1,0 +1,30 @@
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    background: transparent;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.signin__and_signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1.2rem;
+}
+
+.signin__and__signup__mobile{
+    display: none;
+}
+
+@media(max-width: 640px){
+    .signin__and_signup{
+        display: none;
+    }
+
+    .signin__and__signup__mobile{
+        display: flex;
+    }
+}
