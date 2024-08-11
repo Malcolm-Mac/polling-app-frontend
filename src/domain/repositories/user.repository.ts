@@ -11,7 +11,7 @@ export abstract class UserRepository {
         {
             firstName: string,
             lastName: string,
-            phoneNumber: string,
+            email: string,
             password: string
         }): Observable<UserModel>;
     abstract forgotPassword(params:

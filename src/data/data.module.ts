@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { provideHttpClient } from '@angular/common/http';
 import { UserRepository } from "../domain/repositories/user.repository";
 import { UserLoginUseCase } from "../domain/usecases/Auth/user-login.usecase";
 import { UserRegisterUseCase } from "../domain/usecases/Auth/user-register.usecase";
 import { ForgotPasswordUseCase } from "../domain/usecases/Auth/forgot-password.usecase";
 import { VerifyEmailUseCase } from "../domain/usecases/Auth/verify-email.usecase";
 import { GetUserProfleUseCase } from "../domain/usecases/Auth/get-user-profile.usecase";
+import { UserImplementationRepository } from "./repositories/user/user-implementation.repository";
 
 
 const userLoginUseCaseFactory = (userRepo: UserRepository) => new UserLoginUseCase(userRepo);
@@ -50,10 +50,10 @@ export const getUserProfileUseCaseProvider = {
         userRegisterUseCaseProvider,
         forgotPasswordUseCaseProvider,
         verifyEmailUseCaseProvider,
-        provideHttpClient()
+        { provide: UserRepository, useClass: UserImplementationRepository },
     ],
     imports: [
-        CommonModule,
+        CommonModule
     ]
 })
 export class DataModule { }

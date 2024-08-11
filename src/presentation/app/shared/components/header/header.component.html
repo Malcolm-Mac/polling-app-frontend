@@ -1,20 +1,76 @@
 <mat-toolbar>
-  <h2>My Polling App</h2>
+  <a
+    routerLink="/"
+    routerLinkActive="router-link-active"
+    ariaCurrentWhenActive="page"
+    class="cursor-pointer flex items-center gap-2 mt-2"
+  >
+    <ul class="chart">
+      <li style="grid-column: span 9"></li>
+      <li style="grid-column: span 11"></li>
+      <li style="grid-column: span 5"></li>
+    </ul>
+    <h2>Polling app</h2>
+  </a>
+
   <span class="example-spacer"></span>
 
+  <button
+    mat-mini-fab
+    class="menu-button example-icon"
+    (click)="toggleMenu()"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
   <div class="signin__and_signup">
-    <button mat-raised-button color="primary">Login</button>
-
-    <button mat-raised-button color="primary">Registration</button>
-  </div>
-
-  <div class="signin__and__signup__mobile">
-    <button
-      mat-mini-fab
-      class="example-icon"
-      aria-label="Example icon-button with menu icon"
+    <a
+      routerLink="/login"
+      routerLinkActive="router-link-active"
+      ariaCurrentWhenActive="page"
+      mat-raised-button
+      color="primary"
+      >Login</a
     >
-      <mat-icon>menu</mat-icon>
-    </button>
+    <a
+      routerLink="/register"
+      routerLinkActive="router-link-active"
+      ariaCurrentWhenActive="page"
+      mat-raised-button
+      color="primary"
+      >Registration</a
+    >
   </div>
 </mat-toolbar>
+
+<!-- Mobile Menu -->
+<nav class="mobile-menu" [class.open]="menuOpen">
+  <button class="close-button" (click)="toggleMenu()">X</button>
+  <ul>
+    <li mat-raised-button color="primary">
+      <a
+        routerLink="/"
+        routerLinkActive="router-link-active"
+        ariaCurrentWhenActive="page"
+        >Home</a
+      >
+    </li>
+    <li mat-raised-button color="primary">
+      <a
+        routerLink="/login"
+        routerLinkActive="router-link-active"
+        ariaCurrentWhenActive="page"
+        >Login</a
+      >
+    </li>
+    <li mat-raised-button color="primary">
+      <a
+        routerLink="/register"
+        routerLinkActive="router-link-active"
+        ariaCurrentWhenActive="page"
+        >Register</a
+      >
+    </li>
+  </ul>
+</nav>

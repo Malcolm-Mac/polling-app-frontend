@@ -1,0 +1,61 @@
+<section>
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            Login to your account
+          </h1>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6">
+            <div>
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+              <input
+                type="email"
+                formControlName="email"
+                id="email"
+                autocomplete="off"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="name@company.com"
+              />
+              <div *ngIf="submitted && loginForm.get('email')?.errors" class="text-red-500 text-sm mt-1">
+                <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+                <div *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</div>
+              </div>
+            </div>
+            <div>
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <input
+                type="password"
+                formControlName="password"
+                id="password"
+                autocomplete="off"
+                placeholder="••••••••"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              />
+              <div *ngIf="submitted && loginForm.get('password')?.errors" class="text-red-500 text-sm mt-1">
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              mat-raised-button
+              [class.spinner]="loading" [disabled]="loading"
+              color="primary"
+              class="w-full text-white bg-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Login
+            </button>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+              Don't have an account?
+              <a 
+                routerLink="/register" 
+                routerLinkActive="router-link-active" 
+                class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                ariaCurrentWhenActive="page">Register here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  

@@ -1,9 +1,13 @@
+type refreshTokenProp = {
+    token: string;
+    userId: string;
+    expiration: Date;
+}
 export interface UserEntity {
-    id: string;
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    email: string;
-    createdAt: Date;
-    emailVerified: boolean;
+    id: string,
+    email: string,
+    tokenType: string,
+    accessToken: string,
+    expiresIn: string,
+    refreshToken: refreshTokenProp
 }
